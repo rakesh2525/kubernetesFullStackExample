@@ -180,5 +180,23 @@ pipeline {
                 }
             }
         }
+        stage('Expose Containerized Application to Internet') {
+            steps {
+                script {
+                    try {
+                        dir("$WORKSPACE/cicd/script") {
+                            sh './accessApplication.sh'
+                            currentBuild.result = "SUCCESS" 
+                        }
+                    } catch (e) {
+                        currentBuild.result = "FAILED"
+                        throw e
+                    } finally {
+                        // Success or failure, always send notifications
+                        echo "The containerized application is been expose to internet. The result is: ${currentBuild.result}"   
+                    }
+                }
+            }
+        }
     }
 }
