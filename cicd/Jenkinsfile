@@ -185,6 +185,7 @@ pipeline {
                 script {
                     try {
                         dir("$WORKSPACE/cicd/script") {
+                            sh 'chmod 755 ./accessApplication.sh'
                             sh './accessApplication.sh'
                             currentBuild.result = "SUCCESS" 
                         }
