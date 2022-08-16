@@ -19,7 +19,7 @@ pipeline {
                         doGenerateSubmoduleConfigurations: false,
                         extensions: [[$class: 'CleanCheckout']], 
                         submoduleCfg: [], 
-                        userRemoteConfigs: [[url: "https://github.com/RamBoddapati/kubernetesFullStackExample.git"]]
+                        userRemoteConfigs: [[url: "https://github.com/rakesh2525/kubernetesFullStackExample.git"]]
                         ])
                 }
             }
